@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Assign.ly</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shorthandcss@1.1.1/dist/shorthand.min.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Muli:200,300,400,500,600,700,800,900&display=swap" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Custom Scroll bar -->
+    <link rel="stylesheet" href="/css/OverlayScrollbars.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="https://kit.fontawesome.com/594bf01cf2.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body class="muli">
+    <script>
+        $(function ($) {
+            "use strict";
+            $('body').overlayScrollbars({
+                className: "os-theme-dark",
+            })
+        });
+    </script>
+    <nav class="w-100pc flex flex-row md-px-10 py-5 bg-primary" th:include="assignments :: copy"></nav>
+
+    <!-- hero section -->
+    <div th:if="${#lists.size(submissions) == 0}">
+        <div class="flex items-center justify-center w-100pc h-75vh fs-m3">
+            No Submissions yet!
+        </div>
+    </div>
+    <div th:if="${#lists.size(submissions) > 0}" class="flex items-center justify-center mt-8 mx-10">
+        <div class="table-container text-center cell-border flex flex-row flex-inline">
+            <table class="bg-grey-light bc-slategray-light black w-75pc">
+                <thead  class="white bg-primary">
+                    <tr>
+                        <td>ID</td>
+                        <td>Name</td> 
+                        <td>Time Submitted</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each= "submission: ${submissions}">
+                        <td th:text = "${submission.id}">10</td>
+                        <td th:text = "${submission.studentId}">11</td> 
+                        <td th:text = " ${#dates.monthName(submission.subTime)} + ' ' 
+                        + ${#dates.day(submission.subTime)} + ', ' + ${#dates.year(submission.subTime)}  + ' '
+                        + ${#dates.format(submission.subTime, 'hh:mm a')}"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="bg-grey-light bc-slategray-light black w-25pc">
+                <thead  class="white bg-primary">
+                    <tr>
+                        <td>File</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each= "doc: ${docs}">
+                        <td >
+                            <a th:href="@{'/downloadFile/' + ${doc.id}}" 
+                            th:attr="download=${doc.docName}" class="button no-underline bg-primary"
+                            >Download</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        
+    </div>
+    
+    
+
+    <!-- footer -->
+   
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

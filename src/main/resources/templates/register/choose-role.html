@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Assign.ly</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shorthandcss@1.1.1/dist/shorthand.min.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Muli:200,300,400,500,600,700,800,900&display=swap" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Custom Scroll bar -->
+    <link rel="stylesheet" href="/css/OverlayScrollbars.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="https://kit.fontawesome.com/594bf01cf2.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body class="muli">
+    <script>
+        // $(function ($) {
+        //     "use strict";
+        //     $('body').overlayScrollbars({
+        //         className: "os-theme-dark",
+        //     })
+        // })
+    </script>
+   <nav class="w-100pc flex flex-column md-flex-row md-px-10 py-5 bg-primary" th:include="index :: copy"></nav>
+
+    <!-- hero section -->
+
+
+    <!-- features -->
+    <section id="login-sec" class="px-10 md-p-l5">
+        <div class="flex flex-row md-flex-row mx-auto justify-center ">
+            <div class="flex flex-column asap my-auto">
+                <span class="mx-auto mb-4 fs-m5 fw-700">Choose Role</span>
+                <div class="flex">
+                    <div class="role-out grow">
+                        <a href="/register/student/" class="role-div bg-white border form br-8 shadow no-underline">
+                            <i class="fa fa-solid fa-user-graduate"></i>
+                            <span class="icon-color fw-600 fs-m2 mt-3 no-underline">Student</span>
+                        </a>
+                    </div>
+                    <div class="role-out grow">
+                        <a href="/register/teacher/" class="role-div bg-white border form br-8 shadow no-underline ">
+                            <i class="fa fas fa-chalkboard-teacher"></i>
+                            <span class="icon-color fw-600 fs-m2 mt-3 no-underline">Teacher</span>                    
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+   
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

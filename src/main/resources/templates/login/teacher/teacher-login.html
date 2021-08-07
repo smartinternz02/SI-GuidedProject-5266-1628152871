@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Assign.ly</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shorthandcss@1.1.1/dist/shorthand.min.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Muli:200,300,400,500,600,700,800,900&display=swap" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Custom Scroll bar -->
+    <link rel="stylesheet" href="/css/OverlayScrollbars.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="https://kit.fontawesome.com/594bf01cf2.js" crossorigin="anonymous"></script>
+    
+</head>
+
+<body class="muli">
+    <script>
+        // $(function ($) {
+        //     "use strict";
+        //     $('body').overlayScrollbars({
+        //         className: "os-theme-dark",
+        //     })
+        // })
+    </script>
+    <nav class="w-100pc flex flex-column md-flex-row md-px-10 py-5 bg-primary" th:include="index :: copy"></nav>
+
+    <!-- hero section -->
+    <section id="login-sec" class="px-10 md-p-l5">
+        <div class="flex flex-row md-flex-row mx-auto justify-center ">
+            <div class="flex flex-column asap mt-l3 mb-5 login-div">
+                <span class="mx-auto mb-4 fs-m5 fw-700">Login | Teacher</span>
+                <form th:action="@{/loginsubmitTeacher}" method="post" class="p-10 border shadow br-8 md-w-50pc mx-auto">
+                  <div class="flex flex-column">
+                    <label class="my-1 black fw-600" for="email-input">Email</label>
+                    <input type="email" name="email" class="input" id="email-input">
+                  </div>
+                  <div class="flex flex-column mt-3">
+                    <label class="my-1 black fw-600" for="password-input">Password</label>
+                    <input  type="password" name="password" class="input" id="password-input">
+                  </div>
+                  <!-- <div class="flex items-center mt-4">
+                      <input type="checkbox" class="checkbox mr-3" id="tnc-input">
+                      <label class="form-check-label" for="tnc-input">Accept terms and conditions</label>
+                    </div> -->
+                    <div class="mt-4">
+                        <button type="submit" class="button w-100pc bg-sec fw-600 hover-opacity-100">Log In</button>
+                    </div>
+                    <span class="flex pt-3">Don't have an account? <a class="ml-1 cpink no-underline hover-underline" href="/register/">Sign up</a></span>
+                </form>
+              </div>
+            </div>
+            <div th:if="${(param.error != null) and (param.error[0] == 'bad')}">
+                <div class="flex items-center justify-center fs-10 red">
+                    User Doesn't Exist or Wrong Credentials!
+                </div>
+            </div>
+            <div th:if="${(param.create != null) and (param.create[0] == 'success')}">
+                <div class="flex items-center justify-center fs-10 green">
+                    Account Created Successfully!
+                </div>
+              </div>
+    </section>
+
+
+    <!-- footer -->
+   
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
